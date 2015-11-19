@@ -34,7 +34,6 @@
             this.listView_Mission = new System.Windows.Forms.ListView();
             this.tabPage = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.listView_File = new System.Windows.Forms.ListView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -42,6 +41,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tbLogger = new System.Windows.Forms.TextBox();
             this.imgIcon = new System.Windows.Forms.ImageList(this.components);
+            this.treeView_File = new System.Windows.Forms.TreeView();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -99,22 +99,13 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.textBox1);
+            this.tabPage4.Controls.Add(this.treeView_File);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(485, 519);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "File Tree";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(485, 519);
-            this.textBox1.TabIndex = 2;
             // 
             // tabPage3
             // 
@@ -135,6 +126,7 @@
             this.listView_File.Name = "listView_File";
             this.listView_File.ShowItemToolTips = true;
             this.listView_File.Size = new System.Drawing.Size(479, 513);
+            this.listView_File.SmallImageList = this.imgIcon;
             this.listView_File.TabIndex = 1;
             this.listView_File.UseCompatibleStateImageBehavior = false;
             this.listView_File.View = System.Windows.Forms.View.Details;
@@ -186,6 +178,19 @@
             this.imgIcon.TransparentColor = System.Drawing.Color.Transparent;
             this.imgIcon.Images.SetKeyName(0, "torrent.ico");
             this.imgIcon.Images.SetKeyName(1, "file.ico");
+            this.imgIcon.Images.SetKeyName(2, "folder.ico");
+            this.imgIcon.Images.SetKeyName(3, "folder_open.ico");
+            // 
+            // treeView_File
+            // 
+            this.treeView_File.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView_File.ImageIndex = 0;
+            this.treeView_File.ImageList = this.imgIcon;
+            this.treeView_File.Location = new System.Drawing.Point(0, 0);
+            this.treeView_File.Name = "treeView_File";
+            this.treeView_File.SelectedImageIndex = 0;
+            this.treeView_File.Size = new System.Drawing.Size(485, 519);
+            this.treeView_File.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -201,7 +206,6 @@
             this.splitContainer1.ResumeLayout(false);
             this.tabPage.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -223,7 +227,7 @@
         private System.Windows.Forms.TextBox tbLogger;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.ListView listView_File;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TreeView treeView_File;
     }
 }
 

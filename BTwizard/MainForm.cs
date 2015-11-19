@@ -17,6 +17,7 @@ namespace BTwizard
 
         List<string> MissionList_filepath = new List<string>();
 
+        string TorrentList_name = "";
         List<string> TorrentList_filepath = new List<string>();
         List<int> TorrentList_filelength = new List<int>();
 
@@ -101,6 +102,7 @@ namespace BTwizard
                 {
                     MissionList_filepath.Add(filepath);
                     addMissionList(Path.GetFileNameWithoutExtension(filepath));
+                    TorrentList_name = Path.GetFileNameWithoutExtension(filepath);
                     AnalyseTorrent(filepath);
                 }
             });
@@ -125,9 +127,10 @@ namespace BTwizard
             treeView_Structure.Nodes.Clear();
             treeView_Structure.Nodes.Add(rootNode);
             SetLogger(BTToolLogger.End('s'));
-
+            
             GetFileList(rootNode);
-            addMissionFileList();
+            addTorrentFileList();
+            addTorrentFileTree();
         }
 
         private void SetLogger(string message)
@@ -248,16 +251,15 @@ namespace BTwizard
             return nodes.ToArray();
         }
 
-        private void addMissionFileList()
+        private void addTorrentFileList()
         {
             listView_File.Clear();
             listView_File.SmallImageList = imgIcon;
             listView_File.Columns.Add("file name", 120, HorizontalAlignment.Left);
-            listView_File.Columns.Add("length", 120, HorizontalAlignment.Left);
+            listView_File.Columns.Add("length", 80, HorizontalAlignment.Left);
             listView_File.Columns.Add("path", 500, HorizontalAlignment.Left);
 
             listView_File.BeginUpdate();   //数据更新，UI暂时挂起，直到EndUpdate绘制控件，可以有效避免闪烁并大大提高加载速度
-
             for (int i = 0; i < TorrentList_filepath.Count; i++)
             {
                 ListViewItem lvi = new ListViewItem();
@@ -285,6 +287,51 @@ namespace BTwizard
             decimal adjustedSize = (decimal)value / (1L << (mag * 10));
 
             return string.Format("{0:0.##} {1}", adjustedSize, SizeSuffixes[mag]); //"{0:n1} {1}" "{0:0.##} {1}"
+        }
+
+        private void addTorrentFileTree()
+        {
+            List<string> filepath = new List<string>(TorrentList_filepath);
+
+            foreach (string line in filepath)
+            {
+                CreatePath(treeView_File.Nodes, TorrentList_name + line);
+            }
+        }
+
+        private void CreatePath(TreeNodeCollection nodeList, string path)
+        {
+            TreeNode node = null;
+            string folder = string.Empty;
+
+            int p = path.IndexOf('\\');
+            if (p == -1)
+            {
+                folder = path;
+                path = "";
+            }
+            else
+            {
+                folder = path.Substring(0, p);
+                path = path.Substring(p + 1, path.Length - (p + 1));
+            }
+            node = null;
+            foreach (TreeNode item in nodeList)
+            {
+                if (item.Text == folder)
+                {
+                    node = item;
+                }
+            }
+            if (node == null)
+            {
+                node = new TreeNode(folder);
+                nodeList.Add(node);
+            }
+            if (path != "")
+            {
+                CreatePath(node.Nodes, path);
+            }
         }
     }
 }

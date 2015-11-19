@@ -1,0 +1,8 @@
+E:\Project\Visual Studio 2013\BTwizard\BTwizard\bin\Debug\BTwizard.exe
+E:\Project\Visual Studio 2013\BTwizard\BTwizard\bin\Debug\BTwizard.pdb
+E:\Project\Visual Studio 2013\BTwizard\BTwizard\obj\Debug\BTwizard.csprojResolveAssemblyReference.cache
+E:\Project\Visual Studio 2013\BTwizard\BTwizard\obj\Debug\BTwizard.Properties.Resources.resources
+E:\Project\Visual Studio 2013\BTwizard\BTwizard\obj\Debug\BTwizard.csproj.GenerateResource.Cache
+E:\Project\Visual Studio 2013\BTwizard\BTwizard\obj\Debug\BTwizard.exe
+E:\Project\Visual Studio 2013\BTwizard\BTwizard\obj\Debug\BTwizard.pdb
+E:\Project\Visual Studio 2013\BTwizard\BTwizard\obj\Debug\BTwizard.MainForm.resources

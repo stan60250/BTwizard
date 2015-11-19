@@ -34,14 +34,14 @@
             this.listView_Mission = new System.Windows.Forms.ListView();
             this.tabPage = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.treeView_File = new System.Windows.Forms.TreeView();
+            this.imgIcon = new System.Windows.Forms.ImageList(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.listView_File = new System.Windows.Forms.ListView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.treeView_Structure = new System.Windows.Forms.TreeView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tbLogger = new System.Windows.Forms.TextBox();
-            this.imgIcon = new System.Windows.Forms.ImageList(this.components);
-            this.treeView_File = new System.Windows.Forms.TreeView();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -107,6 +107,27 @@
             this.tabPage4.Text = "File Tree";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // treeView_File
+            // 
+            this.treeView_File.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView_File.ImageIndex = 0;
+            this.treeView_File.ImageList = this.imgIcon;
+            this.treeView_File.Location = new System.Drawing.Point(0, 0);
+            this.treeView_File.Name = "treeView_File";
+            this.treeView_File.SelectedImageIndex = 0;
+            this.treeView_File.Size = new System.Drawing.Size(485, 519);
+            this.treeView_File.TabIndex = 0;
+            this.treeView_File.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.treeView_File_AfterExpand);
+            // 
+            // imgIcon
+            // 
+            this.imgIcon.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgIcon.ImageStream")));
+            this.imgIcon.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgIcon.Images.SetKeyName(0, "torrent.ico");
+            this.imgIcon.Images.SetKeyName(1, "file.ico");
+            this.imgIcon.Images.SetKeyName(2, "folder.ico");
+            this.imgIcon.Images.SetKeyName(3, "folder_open.ico");
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.listView_File);
@@ -171,26 +192,6 @@
             this.tbLogger.Name = "tbLogger";
             this.tbLogger.Size = new System.Drawing.Size(479, 513);
             this.tbLogger.TabIndex = 1;
-            // 
-            // imgIcon
-            // 
-            this.imgIcon.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgIcon.ImageStream")));
-            this.imgIcon.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgIcon.Images.SetKeyName(0, "torrent.ico");
-            this.imgIcon.Images.SetKeyName(1, "file.ico");
-            this.imgIcon.Images.SetKeyName(2, "folder.ico");
-            this.imgIcon.Images.SetKeyName(3, "folder_open.ico");
-            // 
-            // treeView_File
-            // 
-            this.treeView_File.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView_File.ImageIndex = 0;
-            this.treeView_File.ImageList = this.imgIcon;
-            this.treeView_File.Location = new System.Drawing.Point(0, 0);
-            this.treeView_File.Name = "treeView_File";
-            this.treeView_File.SelectedImageIndex = 0;
-            this.treeView_File.Size = new System.Drawing.Size(485, 519);
-            this.treeView_File.TabIndex = 0;
             // 
             // MainForm
             // 

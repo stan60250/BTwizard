@@ -163,13 +163,15 @@ namespace BTwizard
             i = 0;
             if (value_file > 0 && index_file > 0)
             {
-                for (int p = 0; p < value_file; p++)
+                int p = 0;
+                while (value_file > 0)
                 {
                     int p_skip = 0;
                     string file_path = "";
                     int file_length = -1;
                     if (nodeGetName(nodeMap[index_file + (p+1)].Text).StartsWith("ITEM"))
                     {
+                        value_file--;
                         for (int ip = 0; ip < nodeGetIndex(nodeMap[index_file + (p+1)].Text, '[', ']'); ip++)
                         {
                             if (nodeGetName(nodeMap[index_file + (p+1) + (ip+1)].Text).StartsWith("length"))
@@ -195,6 +197,7 @@ namespace BTwizard
                         TorrentList_filelength.Add(file_length);
                     }
                     p += p_skip;
+                    p++;
                 }
                 return true;
             }
@@ -332,6 +335,11 @@ namespace BTwizard
             {
                 CreatePath(node.Nodes, path);
             }
+        }
+
+        private void treeView_File_AfterExpand(object sender, TreeViewEventArgs e)
+        {
+            e.Node.Expand();
         }
     }
 }
